@@ -19,7 +19,11 @@ app.get("/", function (req, res) {
 // Esta ruta recibira el parametro del id y la querystring
 app.get("/person/:id", function (req, res) {
   //* el parametro usando req.params y la querystring con req.query para que express parsee el valor de este
-  res.render("person", { ID: req.params.id, Qstr: req.query.qstr }); //* especificamos que se va a mandar el parametro y la querystring
+  res.render("person", {
+    ID: req.params.id,
+    Message: req.query.message,
+    Times: req.query.times,
+  }); //* especificamos que se va a mandar el parametro y la querystring
   //*Con esto mandamos lo que se ponga despues de los ":" y lo que haya despues de "?" al archivo ejs
 });
 //*Podremos acceder a estos parametros desde el archivo ejs escribiendo sus nombre como los tenemos puestos aqui: ID y Qstr
